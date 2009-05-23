@@ -27,3 +27,5 @@ end
 
 puts "Max: #{max}"
 puts "Length generated: #{length}"
+
+# Takes a couple minutes.  Optimize!
