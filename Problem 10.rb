@@ -7,8 +7,12 @@ sum = 0
 begin
 while (line = primes.readline.chomp)
   line.split(" ").each do |x|
-    if !x.nil? and Integer(x) < 2_000_000
-      sum += Integer(x)
+    if !x.nil? 
+      if Integer(x) < 2_000_000
+        sum += Integer(x)
+      else
+        break
+      end
     end
   end
 end
