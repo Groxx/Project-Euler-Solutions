@@ -19,3 +19,5 @@ def squareOfSums(max)
 end
 
 puts squareOfSums(100) - sumOfSquares(100)
+
+# About as good as it gets

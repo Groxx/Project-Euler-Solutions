@@ -11,3 +11,5 @@ max = 0
   max = tmp if tmp > max
 end
 puts max
+
+# About as good as it gets

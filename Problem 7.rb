@@ -23,3 +23,5 @@ end
 
 puts primes.length
 puts primes.inspect
+
+# Several FAR more optimal methods.

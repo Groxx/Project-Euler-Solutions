@@ -19,3 +19,5 @@ end
     end
   end
 end
+
+# brute-force.  This can be solved algebraically.
