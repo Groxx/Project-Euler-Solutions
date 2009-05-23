@@ -18,3 +18,5 @@ solutions = []
   end
 end
 puts solutions.sort!.last
+
+# Unsure about this one.  Executes very quickly, but seems to be wasteful.

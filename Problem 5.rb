@@ -22,3 +22,5 @@ def divisibleBy(val, range)
 end
 
 puts smallestDivisibleBy([20,19,18,17,16,15,14,13,12,11])
+
+# very brute-force.  Re-do.
