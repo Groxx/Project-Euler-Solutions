@@ -4,18 +4,24 @@
 #  Copyright (c) 2009. All rights reserved.
 
 def divisors(num)
-  divs = 1
-  (num/2).times do |i|
-    if Float(num)/(i+1) == Integer(Float(num)/(i+1))
-      divs += 1
+  divs = 0
+  current = 1
+  max = num/2
+  
+  while (current < max)
+    if (Float(num)/(current))%1 == 0
+      divs += 2
+      divs -= 1 if num/current == current # account for things like 36 == 6*6
+      max = num/current
     end
+    current += 1
   end
   divs
 end
 
 solution = 0
 bestSoFar = 0
-(1_000..1_000_000_000).each do |i|
+(1..100_000).each do |i|
   tri = 0
   i.times do |i|
     tri += i+1
@@ -28,8 +34,9 @@ bestSoFar = 0
   if tmp > 500
     break
   end
-  i = i +1
+  i += 1
 end
 puts solution
 
-# Gah!  Takes hours.  Re-do with optimizations.
+# V2: now uses current< max, instead of checking all divisors up to 1/2 of num.  Solves in ~2 minutes or so.
+# Next step: better way of counting divisors
