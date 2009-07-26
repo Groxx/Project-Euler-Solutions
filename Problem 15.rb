@@ -47,3 +47,9 @@ end
   generate_row(i+1)
 end
 puts "Answer: " + @grid[@size][0].to_s
+
+=begin
+  Optimization notes:
+    "@size=41"?  weird.  Should be able to specify num-of-nodes (21 in this case)
+    Nearly optimal speed, though.  Any improvements would be largely superfluous.
+=end
