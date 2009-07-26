@@ -1,0 +1,27 @@
+Hundreds:
+	100: 
+		100*10 for "one hundred"
+		3*99 for " and "
+		plus (1-to-99-sum)
+	200:
+		100*10
+		3*99
+		...
+	300: 100*12
+	...
+	1000: 11
+
+total: 
+1-10 = 39
+11-19 = 67
+20&30&40... = 46
+
+1-99 = 39+67+46+(46*9)+(36*8) = 854
+
+1-1000 = 	(854*10) + # 1-99 * 10 times
+		  	((36+7*9)*100) + # "one hundred" to "nine hundred" leading all numbers above
+			(3*99*9) + # 9 sets of 99 " and " strings
+			11 # "one thousand"
+			
+note:
+	Deceptively difficult.  I kept finding things that changed the number, because I didn't give it deep enough thought.
