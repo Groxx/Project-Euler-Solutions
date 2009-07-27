@@ -1,7 +1,4 @@
 #!/usr/bin/env ruby
-#
-#  Created by  on 2009-05-09.
-#  Copyright (c) 2009. All rights reserved.
 
 def isPalindrome(x, y)
   if ((x*y).to_s == (x*y).to_s.reverse)

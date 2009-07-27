@@ -1,7 +1,4 @@
 #!/usr/bin/env ruby
-#
-#  Created by  on 2009-05-30.
-#  Copyright (c) 2009. All rights reserved.
 
 first = 1
 second = 1

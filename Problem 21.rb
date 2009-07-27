@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 =begin
   Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n).
   If d(a) = b and d(b) = a, where a  b, then a and b are an amicable pair and each of a and b are called amicable numbers.
@@ -24,8 +26,6 @@ end
 (1..9999).each do |i|
   sum = sum_of_divisors(i)
   if i == sum_of_divisors(sum) and i != sum
-    puts "appending: #{i} => #{sum}"
-    puts "  #{sum_of_divisors(i)} == #{sum_of_divisors(sum)}"
     @result << i
   end
 end

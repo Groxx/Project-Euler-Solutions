@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 @array
 
 def readToArray(filename="")
@@ -12,7 +14,6 @@ def get_name_score(index)
   @array[index].size.times do |i|
     score += (@array[index][i] - 64)
   end
-  puts "#{@array[index]} == #{score} => #{score*(index+1)}"
   return score*(index+1)
 end
 

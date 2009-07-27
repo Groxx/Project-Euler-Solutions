@@ -1,7 +1,5 @@
 #!/usr/bin/env ruby
-#
-#  Created by  on 2009-05-19.
-#  Copyright (c) 2009. All rights reserved.
+
 primes = File.new("first million primes.txt", "r")
 sum = 0
 begin
