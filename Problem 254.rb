@@ -12,7 +12,7 @@
   What is sum(sg(i)) for 1<=i<=150?
 =end
 
-@sf_results = {}
+@sf_results = Array.new(2000000)
 
 def fact(n)
   sum = 1
@@ -42,19 +42,37 @@ def sf(n)
 end
 
 def compact_for_g(n)
-  # slower than regular processing, switch to non-string number processing
-  tmp = n.to_s
-  result = ""
+  # Very similar to string processing... WOW is Ruby fast with strings.
+  result = 0
   counts = [0,0,0,0,0,0,0,0,0]
   
-  tmp.delete!("0")
   (1..8).each do |i|
-    counts[i-1] += tmp.count(i.to_s)
-    result << i.to_s*(counts[i-1]%(i+1))
-    counts[i] += counts[i-1]/(i+1)
+    
+    #counts[i-1] += tmp.count(i.to_s)
+    tmp = n
+    while (tmp >= i) 
+      if tmp%10 == i
+        counts[i-1] = counts[i-1] + 1 
+      end
+      tmp = tmp/10
+    end
+    
+    counts[i] = counts[i] + (counts[i-1]/(i+1))
+    counts[i-1] = counts[i-1] % (i+1)
+    
+    #result << i.to_s*(counts[i-1]%(i+1))
+    counts[i-1].times do
+      result = result * 10
+      result = result + i
+    end
   end
-  result << "9"*counts[8]
-  result.to_i
+  #result << "9"*counts[8]
+  counts[8].times do
+    result = result * 10
+    result = result + 9
+  end
+  
+  result
 end
 
 def g(n)
@@ -81,7 +99,7 @@ def g(n)
   i = 1
   while(smallest==0)
     compacted = compact_for_g(i)
-    if !@sf_results.include? compacted
+    if @sf_results[compacted].nil?
       @sf_results[compacted] = sf(compacted)
     end
     
@@ -104,12 +122,14 @@ def sg(n)
   sum
 end
 
+
 # note: will take a frighteningly long amount of time, do not run to completion.
 
 sum=0
-150.times do |i|
+40.times do |i|
   puts "Current: #{i+1}"
   sum += sg(i+1)
-  puts "Cache Size: #{@sf_results.size}"
 end
 puts sum
+
+puts @sf_results.compact!
