@@ -7,12 +7,12 @@
 
   Define sg(i) as the sum of the digits of g(i). So sg(5) = 2 + 5 = 7.
 
-  Further, it can be verified that g(20) is 267 and  sg(i) for 1  i  20 is 156.
+  Further, it can be verified that g(20) is 267 and  sg(i) for 1 <= i <= 20 is 156.
 
   What is sum(sg(i)) for 1<=i<=150?
 =end
 
-@sf_results = Array.new(2000000)
+@sf_results = Array.new(9_999_999)
 
 def fact(n)
   sum = 1
@@ -32,12 +32,19 @@ def f(n)
 end
 
 def sf(n)
-  sum = 0
-  n = f(n)
-  while (n > 0)
-    sum += n%10
-    n = n/10
-  end
+#  if n > 9_999_999
+#    puts "array expanding"
+#  end
+#  if @sf_results[n].nil?
+    sum = 0
+    n = f(n)
+    while (n > 0)
+      sum += n%10
+      n = n/10
+   end
+#    @sf_results[n] = sum
+#  end
+#  @sf_results[n]
   sum
 end
 
@@ -95,18 +102,30 @@ def g(n)
       3333   == 4
       etc... prev digit digit-plus-1-times == next digit
 =end
+
+=begin
+  Prefiltering scheme above didn't work, fairly significantly slower than regular, still too slow.
+    Perhaps simply stripping 0s (and 1s?) will work quickly enough?
+=end
+=begin
+  Replacing zeros (and after) with ones slows down process.  Need something faster, or write in C.
+=end
   smallest = 0
   i = 1
   while(smallest==0)
-    compacted = compact_for_g(i)
-    if @sf_results[compacted].nil?
-      @sf_results[compacted] = sf(compacted)
-    end
+#    compacted = compact_for_g(i)
+#    if @sf_results[compacted].nil?
+#      @sf_results[compacted] = sf(compacted)
+#    end
     
-    if @sf_results[compacted] == n
+    if sf(i) == n #@sf_results[compacted] == n
       smallest = i
     else
       i = i+1
+#      find & strip zeros, replace all after zero with 1s.... 
+
+#      This one in particular is slower than without (tested to 42)
+#      zeros_and_after_to_one(i)
     end
   end
   smallest
@@ -122,14 +141,42 @@ def sg(n)
   sum
 end
 
+# Tested on 1-42, slower than without (gain will be more significant as time goes, but still rather minor)
+def nth_and_after_to_ones(num, nth)
+  num/=(10**nth)
+  nth.times do
+    num *= 10
+    num += 1
+  end
+  num
+end
+
+def zeros_and_after_to_one(n)
+  most_significant_zero = 0
+  
+  tmp = n
+  count = 1
+  while (tmp > 0)
+    if tmp%10==0
+      most_significant_zero = count
+    end
+    count += 1
+    tmp = tmp/10
+  end
+  
+  nth_and_after_to_ones(n, most_significant_zero)
+end
+
 
 # note: will take a frighteningly long amount of time, do not run to completion.
 
-sum=0
-40.times do |i|
-  puts "Current: #{i+1}"
-  sum += sg(i+1)
-end
-puts sum
-
-puts @sf_results.compact!
+require 'benchmark'
+puts Benchmark.measure{
+  sum=0
+  42.times do |i|
+    result = sg(i+1)
+    puts "#{i+1} = #{result}"
+    sum += result
+  end
+  puts sum
+}
