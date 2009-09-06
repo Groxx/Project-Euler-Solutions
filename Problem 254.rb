@@ -12,7 +12,8 @@
   What is sum(sg(i)) for 1<=i<=150?
 =end
 
-@sf_results = Array.new(9_999_999)
+@sf_results = Array.new(1_000_000)
+@resume = 0
 
 def fact(n)
   sum = 1
@@ -32,19 +33,17 @@ def f(n)
 end
 
 def sf(n)
-#  if n > 9_999_999
-#    puts "array expanding"
-#  end
-#  if @sf_results[n].nil?
-    sum = 0
-    n = f(n)
-    while (n > 0)
-      sum += n%10
-      n = n/10
-   end
-#    @sf_results[n] = sum
-#  end
-#  @sf_results[n]
+  tmp = n
+  sum = 0
+  n = f(n)
+  while (n > 0)
+    sum += n%10
+    n = n/10
+  end
+  @sf_results[sum] = tmp if @sf_results[sum].nil?
+  if sum >= 1_000_000
+    puts "array too small"
+  end
   sum
 end
 
@@ -110,8 +109,17 @@ def g(n)
 =begin
   Replacing zeros (and after) with ones slows down process.  Need something faster, or write in C.
 =end
+=begin
+  Reversing sf_results cache, should be better this way.
+  Second enhancement:
+    Define a 'found up to' value, to quit calculating the lower boundaries.
+=end
+  if !@sf_results[n].nil?
+    return @sf_results[n]
+  end
+  
   smallest = 0
-  i = 1
+  i = @resume
   while(smallest==0)
 #    compacted = compact_for_g(i)
 #    if @sf_results[compacted].nil?
@@ -128,6 +136,7 @@ def g(n)
 #      zeros_and_after_to_one(i)
     end
   end
+  @resume = i
   smallest
 end
 
@@ -170,13 +179,15 @@ end
 
 # note: will take a frighteningly long amount of time, do not run to completion.
 
-require 'benchmark'
-puts Benchmark.measure{
+#require 'benchmark'
+#puts Benchmark.measure{
   sum=0
-  42.times do |i|
+  150.times do |i|
     result = sg(i+1)
     puts "#{i+1} = #{result}"
+    puts @sf_results.compact.size
     sum += result
   end
   puts sum
-}
+#}
+puts @sf_results.inspect
