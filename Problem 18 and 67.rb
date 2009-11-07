@@ -31,6 +31,7 @@ def readToArray(filename="")
       @array += [line.split(" ").each{|v| [v.to_i]}]
     end
   end
+  
   @array.collect!{|a| a.collect!{|i| i = i.to_i}}
 end
 
@@ -40,6 +41,7 @@ def getBestRouteSum
       @array[row][col] += ((@array[row+1][col] > @array[row+1][col+1]) ? @array[row+1][col] : @array[row+1][col+1])
     end
   end
+  
   @array[0][0]
 end
 
