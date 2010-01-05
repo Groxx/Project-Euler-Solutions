@@ -13,6 +13,7 @@ I will generally discourage adding images, as they take up a lot of space and do
 
 
 Style guidelines:
+	Every problem, without exception, should contain the problem description at the top of the file, with a link to the problem (for pictures / links, for example).
 	Use tabs.  They're flexible, spaces aren't.  I don't really care if your compiler doesn't like tabs, unless it's a multiple-OS issue, you should probably consider switching compilers if it has trouble with something so elementary.
 	Readability is paramount.  If there's a built-in method that's efficient, use it, but don't add unnecessary complexity to solve 5 problems in less code.  Each should be solved in stand-alone ways that can be approached without knowledge of other solutions covered in this repo.
 	Where you have more than one solution, include them ALL in the same source code file.  Reduce all problems to a single function call, and call all the solutions in whatever location that language will first run. (ie, main() in C-like, or just in the file in Ruby).
