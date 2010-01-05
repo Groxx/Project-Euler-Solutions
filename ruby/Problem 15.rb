@@ -1,5 +1,15 @@
 #!/usr/bin/env ruby
 
+=begin original problem
+http://projecteuler.net/index.php?section=problems&id=15
+
+Starting in the top left corner of a 2 x 2 grid, there are 6 routes (without backtracking) to the bottom right corner.
+
+[images available online]
+
+How many routes are there through a 20 x 20 grid?
+=end
+
 =begin
 Problem:
   Starting in the top left corner of a 2x2 grid, there are 6 routes (without backtracking) to the bottom right corner.

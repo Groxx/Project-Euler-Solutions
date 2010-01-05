@@ -1,0 +1,5 @@
+Ruby installation:
+	Instructions available at: http://www.ruby-lang.org/
+
+Ruby specific notes:
+	When dealing with arrays, `+=` returns a COPY of the data.  If you're just concatenating, use `<<` to modify the original array for significantly faster execution, even on smallish datasets.

@@ -7,19 +7,21 @@ I do not claim to have the most optimal code.  I do not expect to have the most 
 I am not interested in witty "one-liners" which obscure the process.  This is primarily for _learning_, not minimum size.
 There's quite a way to go, but ultimately, I hope to solve a fair number, research others, cheat a bit to find others' solutions, and learn a ridiculous amount in the process.  You're welcome to join in the ride.
 Don't see a language listed?  Contribute!  I'll add what I know, and I like using these to help understand a new language, but I obviously cannot learn them all.
+Solutions should match the concept behind Project Euler.  Simple and/or quick solutions, not excessively "clever" ones.
 
 
 I will generally discourage adding images, as they take up a lot of space and do not version properly.  Consider simplistic SVG, or off-site hosting, or something like "dot" notation for graphs (more info here: http://www.graphviz.org/ (if you know of a better site / notation, let me know!)).
 
 
 Style guidelines:
-	Every problem, without exception, should contain the problem description at the top of the file, with a link to the problem (for pictures / links, for example).
+	Every problem, without exception, should contain the problem description at the top of the file, with a link to the problem (for pictures / links, for example).  Reformat them as necessary to make them understandable (ie, 'x' and '->' don't copy, as they're images), and keep them "reasonable".  Want to elaborate on the problem?  Begin a new comment section.
 	Use tabs.  They're flexible, spaces aren't.  I don't really care if your compiler doesn't like tabs, unless it's a multiple-OS issue, you should probably consider switching compilers if it has trouble with something so elementary.
-	Readability is paramount.  If there's a built-in method that's efficient, use it, but don't add unnecessary complexity to solve 5 problems in less code.  Each should be solved in stand-alone ways that can be approached without knowledge of other solutions covered in this repo.
-	Where you have more than one solution, include them ALL in the same source code file.  Reduce all problems to a single function call, and call all the solutions in whatever location that language will first run. (ie, main() in C-like, or just in the file in Ruby).
-	Try to avoid OS-specific code.  Allowances are made for heavily OS-supported systems like Cocoa and .NET (though I dislike .NET, personally).  No calling Windows-specific C libraries, in other words.  Absolutely everything needed to handle all solutions should be included, with the obvious exception of the compilers / runtimes for the languages (and each folder should have a quick README for installing that language on a number of OSes, or at least links to get started).
+	Readability is paramount.  If there's a built-in method that's efficient, use it, but don't add unnecessary complexity to solve 5 problems in less code.  Each should be solved in stand-alone ways that can be approached without knowledge of other solutions covered in this repo.  If a certain chunk of code is heavily reused, make a contained, importable file, and include a comment on EVERY file that uses it precisely why it's used, and what it does.
+	Where you have more than one solution, include them ALL in the same source code file.  Reduce all problems to a single function call, and call all the solutions in whatever location that language will first run. (ie, main() in C-like, or just in the file in Ruby).  This makes it easy to reduce the run to a single solution, or to compare / run benchmarks against multiple solutions.
+	Try to avoid OS-specific code.  Allowances are made for heavily OS-supported systems like Cocoa for Objective-C on OSX and .NET for C# on Windows (though I dislike .NET, personally).  No calling Windows-specific C libraries, in other words.  Absolutely everything needed to handle all solutions should be included, with the obvious exception of the compilers / runtimes for the languages (and each folder should have a quick README for installing that language on a number of OSes, or at least links to get started).
+	Generally, avoid combining more than one problem in a single file.  Exceptions allowed where the problem definition is effectively identical, but applies to different data (ie, 18 & 67 make sense to combine).  This may be changed to make EVERYTHING stand-alone.
 	English.  Only.  And expect your text to be heavily modified if you have excessively poor grammar.
 
 
 
-That's good for now.  Anyone who sees this: enjoy!
+That's good for now.  Anyone who sees this: enjoy!  I'm still in the process of making my files meet these standards, but feel free to call me on things I've missed!

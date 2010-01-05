@@ -1,5 +1,13 @@
 #!/usr/bin/env ruby
 
+=begin original problem
+http://projecteuler.net/index.php?section=problems&id=20
+
+n! means n x (n - 1) x ... x 3 x 2 x 1
+
+Find the sum of the digits in the number 100!
+=end
+
 fact = 1
 sum = 0
 
