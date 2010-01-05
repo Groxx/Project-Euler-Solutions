@@ -1,0 +1,24 @@
+Welcome, one and all!
+
+I'll keep this brief.  There are loads of Project Euler solution-sets out there, but I've tended to see a disturbing lack of them with proper documentation / help for people who desire to _learn_ about the solutions, rather than simply solving them.
+This project aims to (help) resolve that lack.
+
+I do not claim to have the most optimal code.  I do not expect to have the most optimal code.
+I am not interested in witty "one-liners" which obscure the process.  This is primarily for _learning_, not minimum size.
+There's quite a way to go, but ultimately, I hope to solve a fair number, research others, cheat a bit to find others' solutions, and learn a ridiculous amount in the process.  You're welcome to join in the ride.
+Don't see a language listed?  Contribute!  I'll add what I know, and I like using these to help understand a new language, but I obviously cannot learn them all.
+
+
+I will generally discourage adding images, as they take up a lot of space and do not version properly.  Consider simplistic SVG, or off-site hosting, or something like "dot" notation for graphs (more info here: http://www.graphviz.org/ (if you know of a better site / notation, let me know!)).
+
+
+Style guidelines:
+	Use tabs.  They're flexible, spaces aren't.  I don't really care if your compiler doesn't like tabs, unless it's a multiple-OS issue, you should probably consider switching compilers if it has trouble with something so elementary.
+	Readability is paramount.  If there's a built-in method that's efficient, use it, but don't add unnecessary complexity to solve 5 problems in less code.  Each should be solved in stand-alone ways that can be approached without knowledge of other solutions covered in this repo.
+	Where you have more than one solution, include them ALL in the same source code file.  Reduce all problems to a single function call, and call all the solutions in whatever location that language will first run. (ie, main() in C-like, or just in the file in Ruby).
+	Try to avoid OS-specific code.  Allowances are made for heavily OS-supported systems like Cocoa and .NET (though I dislike .NET, personally).  No calling Windows-specific C libraries, in other words.  Absolutely everything needed to handle all solutions should be included, with the obvious exception of the compilers / runtimes for the languages (and each folder should have a quick README for installing that language on a number of OSes, or at least links to get started).
+	English.  Only.  And expect your text to be heavily modified if you have excessively poor grammar.
+
+
+
+That's good for now.  Anyone who sees this: enjoy!
