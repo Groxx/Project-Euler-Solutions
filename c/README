@@ -1,0 +1,8 @@
+C installation:
+	If you want GCC: http://gcc.gnu.org/install/binaries.html
+	If you want Visual Studio: http://www.microsoft.com/express/default.aspx
+		(if link is broken, look for Microsoft's free "Express Editions" of Visual Studio)
+		Use the Visual C++ application.
+
+C specific notes:
+	

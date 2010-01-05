@@ -1,0 +1,6 @@
+Java installation:
+	Eclipse is the 700-pound-gorilla of Java development, but it is decent.
+		Available at: http://www.eclipse.org
+
+Java specific notes:
+	Java has a large amount of highly-abstracted tools built-in.  If you use them, be sure to include an explanation, and attempt to solve the problem without them, where able / feasible.

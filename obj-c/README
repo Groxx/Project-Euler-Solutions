@@ -1,0 +1,7 @@
+Objective-C installation:
+	On OSX: install the Developer Tools that came with your OSX installation disk.  Usually on a second disk.
+	On anything else: GCC will do for you. http://gcc.gnu.org/install/binaries.html
+		Note that non-OSX-Developer-Tools will not have Objective-C 2.0 features, nor the garbage collector.
+
+Objective-C specific notes:
+	Most Obj-C code should be written with the Cocoa libraries.  Start a separate set of files if using "pure", non-platform-specific Obj-C.
